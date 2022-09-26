@@ -5,7 +5,7 @@ import java.util.*;
 class Solution {
 
     public static void main(String[] arg) {
-        String[] arr = {"ax", "bx", "cx", "cy", "by", "ay", "az", "ay", "as"};
+        String[] arr = {"ax", "bx", "cx", "cy", "by", "ay", "az", "ay", "as", "by", "bz"};
         allSwap(arr);
     }
     /*
@@ -32,7 +32,7 @@ class Solution {
 
 
             swap.forEach((key, value) -> {
-                if(value != word && value != " " && swap.get(index) != " ") {
+                if(value != word && swap.get(index) != " ") {
                     if(value.charAt(0) == letter){
                         arr[index] = value;
                         arr[key] = word;
@@ -43,7 +43,17 @@ class Solution {
                 }
             });
         }
-//        for(Map.Entry<Integer, String> mapEntry: swap.entrySet()){
+
+        swap.forEach((key, value) -> {
+            if(value != " "){
+                arr[key] = value;
+            }
+        });
+
+        System.out.println(Arrays.toString(arr));
+    }
+
+    //        for(Map.Entry<Integer, String> mapEntry: swap.entrySet()){
 //            Character letter = mapEntry.getValue().charAt(0);
 //            String word = mapEntry.getValue();
 //            Integer index = mapEntry.getKey();
@@ -61,14 +71,6 @@ class Solution {
 //                }
 //            });
 //        }
-        swap.forEach((key, value) -> {
-            if(value != " "){
-                arr[key] = value;
-            }
-        });
-
-        System.out.println(Arrays.toString(arr));
-    }
 
 //    for(Map.Entry<Integer, String> mapEntryLoop: swap.entrySet()){
 //                Character letterLoop = mapEntryLoop.getValue().charAt(0);
